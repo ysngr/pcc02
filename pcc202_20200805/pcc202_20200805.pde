@@ -124,15 +124,18 @@ void cline() {
 
 void bline(float sx, float sy, float ex, float ey) {
 
-  float d = dist(sx, sy, ex, ey) / 2;
-
-  noFill();
-  bezier(
-    sx                , sy                , 
-    sx+random(-1, 1)*d, sy+random(-1, 1)*d, 
-    ex-random(-1, 1)*d, ey-random(-1, 1)*d, 
-    ex                , ey
-  );
+  if ( random(10) < 7 ) {
+    line(sx, sy, ex, ey);
+  } else {
+    float d = dist(sx, sy, ex, ey) / 2;
+    noFill();
+    bezier(
+      sx                , sy                , 
+      sx+random(-1, 1)*d, sy+random(-1, 1)*d, 
+      ex-random(-1, 1)*d, ey-random(-1, 1)*d, 
+      ex                , ey
+    );
+  }
 
   return ;
 }
