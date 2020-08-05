@@ -31,7 +31,7 @@ void backaurora() {
     }
   }
   updatePixels();
-  
+
   return ;
 }
 
@@ -43,7 +43,7 @@ void holes() {
     color(231, 117,  52), 
     color(244, 164,  88)
   };
-  
+
   float x, y, r;
 
   strokeWeight(1);
@@ -52,8 +52,8 @@ void holes() {
   for ( color c : cs ) {
     x = random(width);
     y = random(height);
-    r = random(240, 320);
-    for ( float a = 180; a > 0; a -= random(1) ) {
+    r = random(200, 240);
+    for ( float a = 140; a > 0; a -= random(1) ) {
       stroke(c, a);
       circle(x, y, 2*r);
       r += 1;
@@ -69,7 +69,7 @@ void initPoints() {
   boolean isGoto;
   float x, y, d, md;
 
-  ps = new PVector[32];
+  ps = new PVector[30];
   for ( int i = 0; i < ps.length; i++ ) {
     md = 9999;
     x = random(width);
@@ -90,7 +90,7 @@ void initPoints() {
         md = d;
       }
     }
-    ps[i] = new PVector(x, y, min(md, 240));
+    ps[i] = new PVector(x, y, min(md, 260));
   }
 
   return ;
@@ -100,6 +100,7 @@ void initPoints() {
 void planet(float cx, float cy, float d) {
 
   final color[] cs = {
+    color(245,  40, 118), 
     color(234,  85,  75), 
     color( 82, 177, 187), 
     color(251, 203, 103), 
@@ -107,28 +108,33 @@ void planet(float cx, float cy, float d) {
     color(192, 184,  95), 
     color(159, 192, 141), 
     color(179, 120,  85), 
-    color(150, 205, 196), 
-    color(134, 107,  49)
+    color(150, 205, 196)
   };
   final float dt = PI / 512;
 
-  int n = (int)random(1, 4);
+  int n = (int)random(1, 4.5);
   int[] idx = getIndexes(cs.length, 1+2*n);
   int idxi = 0;
   float sw, a, b, x, y;
 
-  noStroke();
-  fill(cs[idx[idxi++]]);
+  if ( random(20) < 1 ) {
+    strokeWeight(2);
+    stroke(cs[idx[idxi++]]);
+    noFill();
+  } else {
+    noStroke();
+    fill(cs[idx[idxi++]]);
+  }
   circle(cx, cy, d);
 
-  pushMatrix();
-  translate(cx, cy);
   sw = map(d, 0, 240, 0.2, 3.6);
   for ( int i = 0; i < n; i++ ) {
     strokeWeight(sw+random(-0.2, 0.2));
     stroke(cs[idx[idxi++]]);
     fill(cs[idx[idxi++]]);
-    rotate(random(-PI, PI));
+    pushMatrix();
+    translate(cx, cy);
+    rotate(random(-PI/4, PI/4));
     a = random(0.5, 0.9) * d;
     b = random(0.1, 0.4) * d;
     for ( float t = 0; t < TWO_PI; t += dt ) {
@@ -143,8 +149,8 @@ void planet(float cx, float cy, float d) {
         }
       }
     }
+    popMatrix();
   }
-  popMatrix();
 
   return ;
 }
