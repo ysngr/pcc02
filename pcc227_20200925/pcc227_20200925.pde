@@ -48,10 +48,10 @@ void noiseBezier(float sx, float sy, float ex, float ey) {
 
   for ( int i = 0; i < 80; i++ ) {
     bezier(sx, sy, cx, cy, dx, dy, ex, ey);
-    cx += 40 * (noise(cx/1) - 0.5);
-    cy += 40 * (noise(cy/1) - 0.5);
-    dx += 40 * (noise(dx/1) - 0.5);
-    dy += 40 * (noise(dy/1) - 0.5);
+    cx += 40 * (noise(cx) - 0.5);
+    cy += 40 * (noise(cy) - 0.5);
+    dx += 40 * (noise(dx) - 0.5);
+    dy += 40 * (noise(dy) - 0.5);
   }
 
   return ;
