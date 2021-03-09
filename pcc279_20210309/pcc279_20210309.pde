@@ -19,13 +19,13 @@ void partArc(float x, float y, float d) {
   final color[] cs = {
     color(218, 205, 139), 
     color(174, 154, 107), 
-    color(92, 118, 100), 
-    color(0, 126, 118), 
+    color( 92, 118, 100), 
+    color(  0, 126, 118), 
     color(248, 246, 222), 
     color(230, 224, 196), 
-    color(85, 125, 62), 
-    color(73, 49, 60), 
-    color(235, 92, 50)
+    color( 85, 125,  62), 
+    color( 73,  49,  60), 
+    color(235,  92,  50)
   };
   final float[] ts = {0, HALF_PI, PI, 3*HALF_PI};
   final float dt = PI / 512;
