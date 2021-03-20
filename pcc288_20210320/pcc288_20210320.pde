@@ -20,15 +20,14 @@ void ncircle(float x, float y, float d) {
   final color[] cs = {
     color(122, 116, 124), 
     color(233, 210, 223), 
-    color(20, 45, 41), 
+    color( 20,  45,  41), 
     color(174, 124, 103), 
     color(198, 199, 206), 
     color(247, 185, 129), 
     color(232, 109, 116), 
     color(245, 243, 238), 
-    color(229, 83, 107)
+    color(229,  83, 107)
   };
-
   final float RA = 50;
   final float dt = PI / 128;
 
